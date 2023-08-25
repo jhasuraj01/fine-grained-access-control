@@ -1,0 +1,5 @@
+TRUNCATE TABLE users_roles;
+TRUNCATE TABLE users;
+TRUNCATE TABLE roles;
+TRUNCATE TABLE actions;
+TRUNCATE TABLE resources;
