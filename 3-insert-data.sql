@@ -3,10 +3,10 @@ INSERT INTO users (user_id, first_name, middle_name, last_name, email, prn, phon
 INSERT INTO users (user_id, first_name, middle_name, last_name, email, prn, phone_number)
     VALUES (2, 'Madhav', NULL, 'Jha', 'madhav@example.com', '120B1F002', "+9167451551");
 
-INSERT INTO actions (action_name) VALUES ('create');
-INSERT INTO actions (action_name) VALUES ('read');
-INSERT INTO actions (action_name) VALUES ('update');
-INSERT INTO actions (action_name) VALUES ('delete');
+INSERT INTO actions (action_id, action_name) VALUES (1, 'create');
+INSERT INTO actions (action_id, action_name) VALUES (2, 'read');
+INSERT INTO actions (action_id, action_name) VALUES (3, 'update');
+INSERT INTO actions (action_id, action_name) VALUES (4, 'delete');
 
 INSERT INTO resources(resource_name) VALUES ('users');
 INSERT INTO resources(resource_name) VALUES ('jobs');
