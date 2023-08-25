@@ -4,3 +4,4 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS actions;
 DROP TABLE IF EXISTS resources;
+DROP VIEW IF EXISTS user_action_resource_map;
