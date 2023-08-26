@@ -67,3 +67,12 @@ WHERE role_id IN (SELECT role_id
   AND action_id = 1
   AND resource_id = 2
 LIMIT 1;
+
+## Check if user with `user_id` is allowed to perform action `action_id` on resource `resource_id`
+SELECT p.role_id, p.action_id, p.resource_id
+FROM policies p
+INNER JOIN users_roles ur ON p.role_id = ur.role_id
+WHERE ur.user_id = 1
+  AND p.action_id = 1
+  AND p.resource_id = 2
+LIMIT 1;
