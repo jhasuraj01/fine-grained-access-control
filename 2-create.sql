@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS policies
 CREATE TABLE IF NOT EXISTS users_roles
 (
 
-    user_id INT NOT NULL,
+    user_id INT NOT NULL PRIMARY KEY ,
     role_id INT NOT NULL,
 
-    PRIMARY KEY (user_id, role_id),
+    CONSTRAINT UNIQUE (user_id, role_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
     FOREIGN KEY (role_id) REFERENCES roles (role_id) ON DELETE CASCADE
 );

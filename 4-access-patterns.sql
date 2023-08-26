@@ -40,3 +40,30 @@ WHERE user_id = 1
   AND resource_id = 2
 LIMIT 1;
 
+## Check if user with `user_id` is allowed to perform action `action_id` on resource `resource_id`
+DROP VIEW IF EXISTS user_policies_map;
+CREATE VIEW user_policies_map AS
+SELECT DISTINCT users_roles.user_id  AS 'user_id',
+                policies.role_id     AS 'role_id',
+                policies.action_id   AS 'action_id',
+                policies.resource_id AS 'resource_id'
+FROM policies
+         INNER JOIN users_roles
+                    ON policies.role_id = users_roles.role_id;
+
+EXPLAIN ANALYZE SELECT *
+from user_policies_map
+WHERE user_id = 1
+  AND action_id = 1
+  AND resource_id = 2
+LIMIT 1;
+
+## Check if user with `user_id` is allowed to perform action `action_id` on resource `resource_id`
+SELECT *
+from policies
+WHERE role_id IN (SELECT role_id
+                  from users_roles
+                  WHERE user_id = 1)
+  AND action_id = 1
+  AND resource_id = 2
+LIMIT 1;
